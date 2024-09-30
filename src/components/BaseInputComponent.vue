@@ -1,6 +1,5 @@
 <script setup>
-import key from '../assets/icons/key-icon.svg'
-import letter from '../assets/icons/key-icon.svg'
+
 const props = defineProps({
      type: {
         type:  String,
@@ -9,14 +8,22 @@ const props = defineProps({
      placeholder: {
         type:  String,
         required: false
+    },
+    name: {
+        type: String,
+        required: false
+    },
+    icon: {
+        type: String,
+        required: false
     }
 })
 </script>
 <template>
     <div class="base-input-container">
-        <label class="base-input-label" for="">
-            <img :src="key" alt="">
-            <input class="base-input" :type="props.type" :placeholder="props.placeholder">
+        <label class="base-input-label" :for="props.name">
+            <img :src="props.icon" alt="">
+            <input class="base-input" :type="props.type" :name="props.name" :placeholder="props.placeholder">
         </label>
     </div>
 </template>

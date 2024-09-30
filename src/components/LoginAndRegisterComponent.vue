@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 import BaseButtonComponent from './BaseButtonComponent.vue';
-import BaseInputComponent from './BaseInputComponent.vue'
+import BaseInputComponent from './BaseInputComponent.vue';
+import key from '../assets/icons/key-icon.svg'
+import letter from '../assets/icons/letter-icon.svg'
 const props = defineProps({
     formType : {
         type:  String,
@@ -29,7 +31,9 @@ const content = ref({
     <div>
         <div class="row no-gap">
             <div class="transparent-card clearfix column row">
-                <div class="logo"></div>
+                <div class="logo">
+                    <img src="../assets/logo-evaluate.svg">
+                </div>
                     <div class="text-content">
                         <h1 class="tc-title">
                             {{ props.formType == "login" ? content.login.tcTitle : content.register.tcTitle}}
@@ -48,14 +52,17 @@ const content = ref({
                         <base-input-component
                             type="text"
                             placeholder="E-mail"
+                            :icon="letter"
                         ></base-input-component>
                         <base-input-component
                             type="password"
                             placeholder="Senha"
+                            :icon="key"
                         ></base-input-component>
                         <base-input-component v-if="props.formType == 'register'"
                             type="password"
                             placeholder="Confirmar Senha"
+                            :icon="key"
                         ></base-input-component>
                     </div>
                     <div class="form-button column">
@@ -89,12 +96,17 @@ const content = ref({
     margin-bottom: 10px;
 }
 
+.form-fields {
+    margin-bottom: 20px;
+}
+
 .solid-card {
     background-color: #FFFFFF;
 }
 
 .transparent-card {
     background-color: #FFFFFF66;
+    position: relative;
 }
 
 h1.tc-title, h2.tc-subtitle, h1.form-title, .form-link, .form-forgot-password {
@@ -117,4 +129,13 @@ h2.tc-subtitle {
     text-decoration: none;
     color: var(--primary-color);
 } 
+.form-button {
+    margin-bottom: 30px;
+}
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 16px;
+}
 </style>
