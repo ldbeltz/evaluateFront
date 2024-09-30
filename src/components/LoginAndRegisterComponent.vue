@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import BaseButtonComponent from './BaseButtonComponent.vue';
+import BaseInputComponent from './BaseInputComponent.vue'
 const props = defineProps({
     formType : {
         type:  String,
@@ -43,7 +44,20 @@ const content = ref({
                     <h1 class="form-title column">
                         {{ props.formType == "login" ? content.login.formTitle : content.register.formTitle}}
                     </h1>
-                    <div class="form-fields column"></div>
+                    <div class="form-fields column">
+                        <base-input-component
+                            type="text"
+                            placeholder="E-mail"
+                        ></base-input-component>
+                        <base-input-component
+                            type="password"
+                            placeholder="Senha"
+                        ></base-input-component>
+                        <base-input-component v-if="props.formType == 'register'"
+                            type="password"
+                            placeholder="Confirmar Senha"
+                        ></base-input-component>
+                    </div>
                     <div class="form-button column">
                         <base-button-component
                         :name="props.formType == 'login' ? content.login.formTitle : content.register.formTitle"
@@ -69,6 +83,10 @@ const content = ref({
     font-family: var(--font-family); 
     align-items: center;
     justify-content: center;
+}
+
+.form-fields > * {
+    margin-bottom: 10px;
 }
 
 .solid-card {
