@@ -2,13 +2,19 @@
 import LoginAndRegisterComponent from '../components/LoginAndRegisterComponent.vue';
 </script>
 <template>
-    <div>
-        <h1>
-            Cadastro
-        </h1>
+    <div class="register-container">
         <login-and-register-component
         formType="register"
         ></login-and-register-component>
-        <router-link to="/">Login</router-link>
     </div>
 </template>
+<style scoped>
+    .register-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(circle, rgba(0,156,99,1) 0%, rgba(9,179,140,1) 60%, rgba(8,139,168,1) 95%);;
+    }
+</style>

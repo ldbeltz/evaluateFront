@@ -21,7 +21,7 @@ const props = defineProps({
 </template>
 <style scoped>
 .primary-button {
-    background-color: #09B38C;
+    background-color: var(--primary-color);
     padding: 10px 0px;
     color: #FFFFFF;
     font-family: Roboto;
