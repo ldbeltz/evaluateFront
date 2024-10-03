@@ -35,50 +35,46 @@ body {
     display: flex;
 }
 
-@media only screen and (max-width: 768px) {
-    .row {
-        flex-direction: column;
-    }
-    .row-reverse {
-        flex-direction: row;
-    }
-    .column.is-three-quarters {
-        max-width: 75%;
-    }
+.column.is-four-fifths {
+    max-width: 80%;
+}
 
-    .column.is-two-thirds {
-        max-width: 66.6666%;
-    }
+.column.is-three-quarters {
+    max-width: 75%;
+}
 
-    .column.is-three-fifths {
-        max-width: 60%;
-    }
+.column.is-two-thirds {
+    max-width: 66.6666%;
+}
 
-    .column.is-two-fifths {
-        max-width: 40%;
-    }
+.column.is-three-fifths {
+    max-width: 60%;
+}
 
-    .column.is-one-third {
-        max-width: 33.3333%;
-    }
+.column.is-two-fifths {
+    max-width: 40%;
+}
 
-    .column.is-third {
-        max-width: 30%;
-    }
+.column.is-one-third {
+    max-width: 33.3333%;
+}
 
-    .column.is-one-quarter {
-        max-width: 25%;
-    }
+.column.is-third {
+    max-width: 30%;
+}
 
-    .column.is-one-fifth {
-        max-width: 20%;
-    }
+.column.is-one-quarter {
+    max-width: 25%;
+}
 
-    .column.is-one-tenth {
-        max-width: 10%;
-    }
+.column.is-one-fifth {
+    max-width: 20%;
+}
 
-    .column.is-one-tenth--mobile {
-        max-width: 10%;
-    }
+.column.is-one-tenth {
+    max-width: 10%;
+}
+
+.column.is-one-tenth--mobile {
+    max-width: 10%;
 }
