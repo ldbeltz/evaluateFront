@@ -4,7 +4,7 @@ import userLogo from '../assets/icons/user-logo.svg';
 <template>
 <div class="column is-one-fifth">
                 <div class="row-reverse teacher-data ">
-                    <div class="row text">
+                    <div class="row title-text">
                         <img class="logo" :src="userLogo" alt="">
                         <div class="">Usuário Nome completo</div>
                     </div>
@@ -18,7 +18,7 @@ import userLogo from '../assets/icons/user-logo.svg';
     
 </template>
 <style scoped>
- .teacher-data {
+    .teacher-data {
         display: flex;
         justify-content: center;
         padding: 10px;
@@ -26,7 +26,7 @@ import userLogo from '../assets/icons/user-logo.svg';
         border-radius: 5px;
         border-top: 2px solid var(--primary-color);
     }
-    .text{
+    .title-text{
         display: flex;
         align-items: center;
         color: #fff;

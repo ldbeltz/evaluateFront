@@ -3,6 +3,7 @@ import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import TeacherHomeView from '../views/TeacherHomeView.vue';
 import CreateClassroomView from '../views/CreateClassroomView.vue';
+import DisciplineHomeView from '../views/DisciplineHomeView.vue';
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/createClassroom',
         name: 'createClassroom',
         component: CreateClassroomView
+    },
+    {
+        path: '/disciplineHome',
+        name: 'disciplineHome',
+        component: DisciplineHomeView
     }
 ]
 const router = createRouter({
