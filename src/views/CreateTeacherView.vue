@@ -48,12 +48,6 @@ import plusIcon from '../assets/icons/plus-icon.svg';
     </div>
 </template>
 <style scoped>
-.create-teacher-container {
-        width: 100vw;
-        height: 100vh;
-        background-color: #202022;
-        font-family: var(--font-family); 
-    }
 .content {
     padding: 60px 30px;
 }
@@ -66,9 +60,6 @@ import plusIcon from '../assets/icons/plus-icon.svg';
 }
 .no-grow {
     flex: 0;
-}
-.justify-center {
-    justify-content: center;
 }
 .add-teacher {
     display: flex;

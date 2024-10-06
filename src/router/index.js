@@ -6,6 +6,7 @@ import CreateClassroomView from '../views/CreateClassroomView.vue';
 import CreateDisciplineView from '../views/CreateDisciplineView.vue';
 import DisciplineHomeView from '../views/DisciplineHomeView.vue';
 import CreateTeacherView from '../views/CreateTeacherView.vue';
+import IndexTeacherView from '../views/IndexTeacherView.vue';
 
 const routes = [
     {
@@ -27,6 +28,11 @@ const routes = [
         path: '/createTeacher',
         name: 'createTeacher',
         component: CreateTeacherView
+    },
+    {
+        path: '/indexTeacher',
+        name: 'indexTeacher',
+        component: IndexTeacherView
     },
     {
         path: '/createClassroom',

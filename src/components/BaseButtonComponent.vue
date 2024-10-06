@@ -16,20 +16,25 @@ const props = defineProps({
     icon: {
         type: String,
         required: false
+    },
+    route: {
+        type: String,
+        required: false
     }
 })
 
 </script>
 <template>
     <div>
-        <button :class="`${props.type}-button ${props.size}-button`">
+        <button v-if="props.type !== 'route'" :class="`${props.type}-button ${props.size}-button`">
             {{ props.name }}
             <img v-if="props.type === 'icon'" :src="props.icon">
         </button>
+        <router-link v-else :to="props.route" :class="`${props.type}-button ${props.size}-button`"> {{ props.name }}</router-link>
     </div>
 </template>
 <style scoped>
-button {
+button, a {
     padding: 10px 5px;
     font-size: 20px;
     width: 100%;
@@ -40,8 +45,11 @@ button {
     cursor: pointer;
 
 }
-.primary-button {
+.primary-button, .route-button {
     background-color: var(--primary-color);  
+}
+.route-button {
+    text-decoration: none;
 }
 .secondary-button {
     background-color: #808080;

@@ -30,12 +30,6 @@ const disciplines = [
     </div>
 </template>
 <style scoped>
-    .teacher-home-container {
-        width: 100vw;
-        height: 100vh;
-        background-color: #202022;
-        font-family: var(--font-family); 
-    }
     .content {
         padding: 60px 30px;
     }
