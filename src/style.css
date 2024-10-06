@@ -78,3 +78,6 @@ body {
 .column.is-one-tenth--mobile {
     max-width: 10%;
 }
+.column.is-half {
+    max-width: 50%;
+}

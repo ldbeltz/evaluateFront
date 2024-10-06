@@ -74,12 +74,12 @@ const options = [
                         </div>
                     </div>
                     <div class="form-buttons row">
-                        <div class="column">
+                        <div class="column is-one-third">
                             <base-button-component
                                 name="Cadastrar" type="primary"
                             ></base-button-component>
                         </div>
-                        <div class="column">
+                        <div class="column is-one-third">
                             <base-button-component
                                 name="Cancelar" type="secondary"
                             ></base-button-component>
@@ -120,6 +120,7 @@ const options = [
     gap: 5px;
 }
 .form-buttons {
-   
+ margin-top: 32px;
+ justify-content: center;
 }
 </style>

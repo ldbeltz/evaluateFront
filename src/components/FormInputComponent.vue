@@ -20,6 +20,10 @@ const props = defineProps({
         type: [],
         required: false
     },
+    rows: {
+        type:String,
+        required: false
+    }
 
 })
 </script>
@@ -38,8 +42,15 @@ const props = defineProps({
             <option   
                 v-for="option in props.options"
                 :key="option.id"
-                :value="option.id">{{ option.name }}</option>
+                :value="option.id"  
+                :name="props.name">{{ option.name }}</option>
         </select>
+        <textarea 
+            v-else-if="props.typeInput === 'textArea'"  
+            :name="props.name" 
+            :rows="props.rows"
+            :placeholder="props.placeholder"
+            class="input-form"></textarea>
         
     </div>
 </template>
@@ -62,7 +73,7 @@ margin-bottom: 4px;
 .input-form::placeholder {
    color:#A6A6A6; 
 }
-input:focus-visible {
+input:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--primary-color);
 }
 select option {
@@ -73,5 +84,4 @@ select:focus {
     border: 2px solid var(--primary-color);
     background-color: #272727;
 }
-
 </style>
