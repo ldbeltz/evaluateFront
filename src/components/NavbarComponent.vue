@@ -50,7 +50,7 @@ import userLogo from '../assets/icons/user-logo.svg'
         display: inline-block;
         padding: 0px 50px;
     }
-    .nav-links li:hover {
-        border-bottom: 1px solid var(--primary-color);
+    .nav-links li > a:hover {
+        color: var(--primary-color);
     }
 </style>

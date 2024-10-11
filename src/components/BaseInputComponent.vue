@@ -16,12 +16,17 @@ const props = defineProps({
     icon: {
         type: String,
         required: false
+    },
+    labelText: {
+        type:String,
+        required: false
     }
 })
 </script>
 <template>
     <div class="base-input-container">
         <label class="base-input-label" :for="props.name">
+            {{ props.labelText }}
             <img :src="props.icon" alt="">
             <input class="base-input" :type="props.type" :name="props.name" :placeholder="props.placeholder">
         </label>

@@ -2,7 +2,7 @@
 import { defineProps } from 'vue';
 
 const props = defineProps({
-  discipline: {
+  cardData: {
     type: Object,
     required: true
   }
@@ -10,8 +10,8 @@ const props = defineProps({
 </script>
 <template>
     <div class="card-content row-reverse">
-        <div class="discipline-name">{{ discipline.name }}</div>
-        <div class="classes">{{ discipline.classes }} Turmas</div>
+        <div class="data-name">{{ cardData.name }}</div>
+        <div class="amount">{{ cardData.amount }} Turmas</div>
     </div>
 </template>
 <style scoped>
@@ -22,15 +22,15 @@ const props = defineProps({
         border: 1px solid #fff;
         color: #fff;
         border-radius: 10px;
-        width: 20%;
         height: 120px;
         background: linear-gradient(150deg, rgba(0,156,99,1) 0%, rgba(8,139,168,1) 95%);
-        font-family: var(--font-family); 
+        font-family: var(--font-family);
+        flex: 0 0 22%;
     }
-    .discipline-name {
+    .data-name {
         font-size: 20px;
     }
-    .classes {
+    .amount {
         border-top: 1px solid #fff;
     }
 </style>
