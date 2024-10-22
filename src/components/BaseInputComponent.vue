@@ -20,6 +20,10 @@ const props = defineProps({
     labelText: {
         type:String,
         required: false
+    },
+    modelValue: {
+        type: String,
+        required: true
     }
 })
 </script>
@@ -28,7 +32,7 @@ const props = defineProps({
         <label class="base-input-label" :for="props.name">
             {{ props.labelText }}
             <img :src="props.icon" alt="">
-            <input class="base-input" :type="props.type" :name="props.name" :placeholder="props.placeholder">
+            <input class="base-input" :type="props.type" :name="props.name" :placeholder="props.placeholder"  :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
         </label>
     </div>
 </template>

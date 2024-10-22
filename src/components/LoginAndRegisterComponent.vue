@@ -4,12 +4,17 @@ import BaseButtonComponent from './BaseButtonComponent.vue';
 import BaseInputComponent from './BaseInputComponent.vue';
 import key from '../assets/icons/key-icon.svg'
 import letter from '../assets/icons/letter-icon.svg'
+import axios from "../axios.js";
+import router from "../router";
+
+
 const props = defineProps({
     formType : {
         type:  String,
         required: true
     }
-})
+});
+
 const content = ref({
     login: {
         tcTitle: "Olá! Seja bem vindo de volta",
@@ -25,7 +30,76 @@ const content = ref({
         formLink:"Já está cadastrado?"
 
     }
-})
+});
+
+const data = ref({
+    email: '',
+    password: ''
+});
+
+const send = () => {
+    
+    
+    
+    if (!data.value.email || !data.value.password) {
+        console.error('Email or password is missing.');
+        return;  // Prevent further actions if data is missing
+    }
+ 
+    if(props.formType == "login"){ 
+        
+        const body = {
+        email: data.value.email,
+        senha: data.value.password
+        }; 
+        
+        axios.post('/login', body)
+        .then(response => {
+            console.log('Redirecting to teacherHome...');
+            router.push('/teacherHome').catch(err => {
+                console.error('Erro de rota: ', err);
+            });
+        })
+        .catch(error => {
+        if (error.response) {
+            if (error.response.status === 401) {
+            return;
+            }
+        }
+        });
+    } else {
+        
+        const body = {
+        email: data.value.email,
+        senha: data.value.password,
+        nome: 'teste'
+        }; 
+
+        axios.post('/usuarios', body)
+        .then(response => {
+
+            // localStorage.setItem('email', response.data.email)
+            // localStorage.setItem('nome', response.data.nome)
+            // localStorage.setItem('idUsuario', response.data.id)
+            // Cookies.set('Token', response.data.email, { expires: 3600 });
+            // Cookies.set('nome', response.data.nome, { expires: 3600 });
+            // Cookies.set('idUsuario', response.data.id, { expires: 3600 });
+            router.push('/teacherHome').catch(err => {
+                console.error('Erro de rota: ', err);
+            });
+        })
+        .catch(error => {
+        if (error.response) {
+            if (error.response.status === 401) {
+            
+            //this.errorMessage = 'CPF ou senha incorretos.';
+            return;
+            }
+        }
+        //this.errorMessage = 'Sistema indisponivel no momento.';
+        });
+    }
+};
 </script>
 <template>
     <div>
@@ -48,29 +122,33 @@ const content = ref({
                     <h1 class="form-title column">
                         {{ props.formType == "login" ? content.login.formTitle : content.register.formTitle}}
                     </h1>
-                    <div class="form-fields column">
-                        <base-input-component
-                            type="text"
-                            placeholder="E-mail"
-                            :icon="letter"
-                        ></base-input-component>
-                        <base-input-component
-                            type="password"
-                            placeholder="Senha"
-                            :icon="key"
-                        ></base-input-component>
-                        <base-input-component v-if="props.formType == 'register'"
-                            type="password"
-                            placeholder="Confirmar Senha"
-                            :icon="key"
-                        ></base-input-component>
-                    </div>
-                    <div class="form-button column">
-                        <base-button-component
-                        :name="props.formType == 'login' ? content.login.formTitle : content.register.formTitle"
-                        type="primary"
-                        ></base-button-component>
-                    </div>
+                    <form @submit.prevent="send">
+                        <div class="form-fields column">
+                            <base-input-component
+                                type="text"
+                                placeholder="E-mail"
+                                :icon="letter"
+                                v-model="data.email"
+                            ></base-input-component>
+                            <base-input-component
+                                type="password"
+                                placeholder="Senha"
+                                :icon="key"
+                                v-model="data.password"
+                            ></base-input-component>
+                            <base-input-component v-if="props.formType == 'register'"
+                                type="password"
+                                placeholder="Confirmar Senha"
+                                :icon="key"
+                            ></base-input-component>
+                        </div>
+                        <div class="form-button column">
+                            <base-button-component
+                            :name="props.formType == 'login' ? content.login.formTitle : content.register.formTitle"
+                            type="primary"
+                            ></base-button-component>
+                        </div>
+                    </form>
                     <div class="form-link column">
                         <span> {{ props.formType == "login" ? content.login.formLink : content.register.formLink}}</span>
                         <router-link v-if="props.formType == 'login'" to="/Register"> Cadastre-se</router-link>

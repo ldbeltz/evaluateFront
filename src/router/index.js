@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import TeacherHomeView from '../views/TeacherHomeView.vue';
@@ -21,7 +21,7 @@ const routes = [
     },
     {
         path: '/teacherHome',
-        name: 'teacherHome',
+        name: 'TeacherHomeView',
         component: TeacherHomeView
     },
     {
@@ -51,8 +51,8 @@ const routes = [
     }
 ]
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes
+    history: createWebHistory(import.meta.env.BASE_URL),
+    routes,
 })
 
 export default router;
