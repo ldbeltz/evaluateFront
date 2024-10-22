@@ -1,16 +1,27 @@
 <script setup>
 import evaluateLogo from '../assets/icons/logo-evaluate.svg'
 import userLogo from '../assets/icons/user-logo.svg'
+import router from '../router';
 </script>
 <template>
     <header>
         <div class="text"><img class="logo" :src="evaluateLogo" alt="">EVALUATE</div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Criar disciplina</a></li>
-                <li><a href="#">Criar turma</a></li>
-                <li><a href="#">Criar avaliação</a></li>
+                <router-link to ="/teacherHome">
+                    <li><a>Home</a></li>
+                </router-link>
+                
+                <router-link to ="/createDiscipline">
+                    <li><a>Criar disciplina</a></li>
+                </router-link>
+                
+                <router-link to ="/createClassroom">
+                    <li><a>Criar turma</a></li>
+                </router-link>
+                <router-link to ="/teacherHome">
+                    <li><a>Criar avaliação</a></li>
+                </router-link>
             </ul>
         </nav>
         <div class="text"><img class="logo" :src="userLogo" alt="">Usuário</div>
